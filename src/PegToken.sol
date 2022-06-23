@@ -16,6 +16,41 @@ contract PegToken is ERC20PermitUpgradeable, OwnableUpgradeable, PausableUpgrade
     }
 
     /**
+     * @dev See {IERC20-approve}.
+     * @param spender Spender's address
+     * @param amount Allowance amount
+     * @return True if successful
+     */
+    function approve(address spender, uint256 amount) public override whenNotPaused returns (bool) {
+        return super.approve(spender, amount);
+    }
+
+    /**
+     * @dev See {IERC20-transfer}.
+     * @param to Destination address
+     * @param amount Transfer amount
+     * @return True if successful
+     */
+    function transfer(address to, uint256 amount) public override whenNotPaused returns (bool) {
+        return super.transfer(to, amount);
+    }
+
+    /**
+     * @dev See {IERC20-transferFrom}.
+     * @param from Owner's address
+     * @param to Destination address
+     * @param amount Transfer amount
+     * @return True if successful
+     */
+    function transferFrom(
+        address from,
+        address to,
+        uint256 amount
+    ) public override whenNotPaused returns (bool) {
+        return super.transferFrom(from, to, amount);
+    }
+
+    /**
      * @dev Triggers stopped state.
      * Can only be called by the current owner.
      */
